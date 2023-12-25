@@ -1,0 +1,27 @@
+{
+    "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
+    "name": "TimedBlink",
+    "version": "0.5.0",
+    "description": "An object oriented library for asynchrnous programmable LED blinking",
+    "keywords": [],
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/lpasqualis/TimedBlink"
+    },
+    "authors": [],
+    "license": "GPL-3.0-or-later",
+    "frameworks": "arduino",
+    "platforms": [
+        "atmelsam",
+        "espressif32",
+        "teensy"
+    ],
+    "headers": [
+        "Arduino.h",
+        "TimedBlink.h"
+    ],
+    "dependencies":
+    {
+    }
+}
