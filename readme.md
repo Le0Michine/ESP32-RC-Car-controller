@@ -13,8 +13,6 @@ Cahnnel # |Function|Notes|
 5|Arm|when below 1500uS turns off steering and ESC control, limits light controls
 6|Haz lights|blink both turn signals when above 1300uS
 
-
-
 ![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-top.svg)
 ![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-bottom.svg)
 ![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-assembled.jpg)
