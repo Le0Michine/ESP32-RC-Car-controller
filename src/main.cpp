@@ -3,8 +3,8 @@
 #include "TimedBlink.h"
 #include "CRSFforArduino.hpp"
 
-const uint8_t RxPin = 4;
-const uint8_t TxPin = 6;
+const uint8_t RxPin = 1;
+const uint8_t TxPin = 4;
 
 CRSFforArduino crsf = CRSFforArduino(RxPin, TxPin);
 const int channelCount = crsfProtocol::RC_CHANNEL_COUNT;
@@ -18,14 +18,17 @@ const int breakChannel = 7;
 
 const int boardStatusLedPin = 15;
 
-const int driveChannelPin = 1;
-const int steeringChannelPin = 2;
-const int headLightPin = 40;
-const int tailLightPin = 38;
-const int leftTurnlightPin = 36;
-const int rightTurnlightPin = 34;
-const int breakLightPin = 21;
-const int reverseLightPin = 17;
+const int driveChannelPin = 2;
+const int steeringChannelPin = 3;
+const int headLightPin = 39;
+const int tailLightPin = 40;
+const int leftTurnlightPin = 38;
+const int rightTurnlightPin = 37;
+const int breakLightPin = 35;
+const int reverseLightPin = 36;
+
+const int auxLight1 = 33;
+const int auxLight2 = 34;
 
 const int minServoTime = 988;
 const int maxServoTime = 2012;
@@ -91,6 +94,14 @@ void setup()
   boardStatusBlink.setBlinkCount(3);
   boardStatusBlink.blink(100, 100);
   boardStatusBlink.blinkSync();
+  for (int i = 33; i < 41; i++)
+  {
+    pinMode(i, OUTPUT);
+    TimedBlink nextBlink(i);
+    nextBlink.setBlinkCount(3);
+    nextBlink.blink(100, 100);
+    nextBlink.blinkSync();
+  }
 }
 
 volatile bool lastArmedState = false;
@@ -109,6 +120,7 @@ void loop()
   // Serial.print(", rightTurnLightBlink: ");
   // Serial.print(rightTurnLightBlink.isBlinking());
   // Serial.println("");
+  updateMainlights();
   if (armed)
   {
     if (!lastArmedState)
@@ -121,7 +133,6 @@ void loop()
     lastArmedState = true;
     updateServo(steeringChannel, streetingServo);
     updateServo(driveChannel, driveServo);
-    updateMainlights();
 
     uint16_t driveInput = readChannel(driveChannel);
 
