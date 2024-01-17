@@ -17,3 +17,4 @@ Cahnnel # |Function|Notes|
 
 ![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-top.svg)
 ![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-bottom.svg)
+![](https://raw.githubusercontent.com/Le0Michine/ESP32-RC-Car-controller/master/pcb/pcb-assembled.jpg)
